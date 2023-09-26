@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:53:43 by eescalei          #+#    #+#             */
-/*   Updated: 2023/09/18 17:25:20 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/09/26 18:56:01 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct	stack
 /* algorythm */
 int sort_stack(t_stack **stack_a, t_stack **stack_b);
 int calc_moves(t_stack **stack_a, t_stack **stack_b);
+int find_correct_place(int number, t_stack **stack_b);
+
 
 
 /* suport functions */
@@ -53,7 +55,7 @@ int rotate(t_stack **stack);
 int reverse_rotate(t_stack **stack);
 
 /* variables corretion */
-void variables_corretor(t_stack **stack);
+void variables_corretor(t_stack **stack_a);
 void get_first_element(t_stack **stack);
 
 /* avaliable moves */

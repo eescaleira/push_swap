@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:53:50 by eescalei          #+#    #+#             */
-/*   Updated: 2023/09/21 19:46:07 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/09/26 18:56:51 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,9 @@ int main (int ac, char **av)
 		i++;
 	}
 	variables_corretor(&stack_a);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	sa(&stack_b);
-	rra(&stack_b);
-	calc_moves(&stack_a, &stack_b);
-	// pa(&stack_a, &stack_b);
-	// sort_stack(&stack_a, &stack_b);	
+	
+	
+	sort_stack(&stack_a, &stack_b);	
 
 
 	/* CRIAR FILE E FUNCTION Para print dos stacks */
