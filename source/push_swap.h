@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:53:43 by eescalei          #+#    #+#             */
-/*   Updated: 2023/09/26 18:56:01 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/10/24 23:45:49 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 typedef struct	stack
 {
 	struct stack	*previous;
+	int				position;
 	int				content;
 	int				index;
 	int 			direction;
@@ -35,12 +36,13 @@ typedef struct	stack
 /* algorythm */
 int sort_stack(t_stack **stack_a, t_stack **stack_b);
 int calc_moves(t_stack **stack_a, t_stack **stack_b);
-int find_correct_place(int number, t_stack **stack_b);
-
-
+t_stack *find_correct_place(int number, t_stack *stack_b);
+t_stack *find_snbr(t_stack *stack_a);
 
 /* suport functions */
 int	ft_atoi(char *str);
+void print_stack(t_stack *stack_a, t_stack *stack_b);
+
 /* list functions */
 int		ft_lstsize(t_stack *lst);
 void	ft_lstadd_front(t_stack **lst, t_stack *new);
@@ -48,15 +50,15 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new);
 t_stack	*ft_lstnew(int content);
 t_stack	*ft_lstlast(t_stack *lst);
 
+/* variables corretion */
+void variables_corretor(t_stack **stack_a);
+void get_first_element(t_stack **stack);
+
 /* general moves */
 int swap(t_stack **stack);
 int push(t_stack **destiny, t_stack **origin);
 int rotate(t_stack **stack);
 int reverse_rotate(t_stack **stack);
-
-/* variables corretion */
-void variables_corretor(t_stack **stack_a);
-void get_first_element(t_stack **stack);
 
 /* avaliable moves */
 int sa(t_stack **stack_a);
