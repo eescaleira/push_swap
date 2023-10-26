@@ -6,14 +6,14 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:53:50 by eescalei          #+#    #+#             */
-/*   Updated: 2023/10/25 00:04:22 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/10/26 23:09:01 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 // criar erro para limitede int
 // criar caso para dois args (mais?)
-
+// caso nao haja argumentos ??
 int main (int ac, char **av)
 {
 	int i;

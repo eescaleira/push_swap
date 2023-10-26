@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 01:08:11 by eescalei          #+#    #+#             */
-/*   Updated: 2023/10/26 21:09:08 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/10/26 23:29:56 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ int sort_stack(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack *temp_a;
 	t_stack *temp_b;
+	int a;
 	
 	pb(&(*stack_a), &(*stack_b));
 	pb(&(*stack_a), &(*stack_b));
@@ -147,7 +148,7 @@ int sort_stack(t_stack **stack_a, t_stack **stack_b)
 		sb(&(*stack_b));
 	calc_moves(&(*stack_a), &(*stack_b));
 	print_stack(*stack_a, *stack_b);
-	while(ft_lstsize(*stack_a) > 49)
+	while(ft_lstsize(*stack_a) > 1)
 	{
 		temp_a = find_snbr(*stack_a);
 		get_first_element(&(*stack_a));
@@ -158,10 +159,21 @@ int sort_stack(t_stack **stack_a, t_stack **stack_b)
 		calc_moves(&(*stack_a), &(*stack_b));
 		print_stack(*stack_a, *stack_b);// visualizar movimentos
 	}
-	// while(ft_lstsize(*stack_b) > 0)
-	// {
-	// 	if(ft_lstlast(*stack_a)->content > (*stack_b)->content)
-	// 		rra(&(*stack_a));
-	// 	pa(&(*stack_a), &(*stack_b));
-	// }	
+	while((*stack_b)->content > (*stack_b)->next->content)
+		rb(&(*stack_b));
+	rb(&(*stack_b)); /* possivel otimizacao : verificar se e mais efeciente com rb ou rrb */
+	temp_b = *stack_a;
+	if(temp_b->content > (*stack_b)->content)
+	{
+		pa(&(*stack_a), &(*stack_b));
+		rb(&(*stack_b));
+	}
+	while(ft_lstsize(*stack_b) > 1)
+	{
+		if(temp_b->content < (*stack_b)->content && temp_b->content > (*stack_b)->next->content)
+			rra(&(*stack_a));		
+		pa(&(*stack_a), &(*stack_b));
+	}
+	// pa(&(*stack_a), &(*stack_b));
+	return(0);
 }
