@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 01:08:11 by eescalei          #+#    #+#             */
-/*   Updated: 2023/10/26 14:57:10 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/10/26 20:17:34 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ int calc_moves(t_stack **stack_a, t_stack **stack_b)// ultimo else fica moves = 
 	{
 		temp = find_correct_place((*stack_a)->content, *stack_b);
 		if(temp->direction == 1 && (*stack_a)->direction == 1)
-			((*stack_a)->index > temp->index) ? ((*stack_a)->moves = (*stack_a)->index +2) : ((*stack_a)->moves = temp->index +2);
+			((*stack_a)->index > temp->index) ? ((*stack_a)->moves = (*stack_a)->index +1) : ((*stack_a)->moves = temp->index +1);
 		else if(temp->direction == -1 && (*stack_a)->direction == -1)
-			((*stack_a)->index > temp->index) ? ((*stack_a)->moves = (*stack_a)->index +2) : ((*stack_a)->moves = temp->index +2);// broken 97 second element 
+			((*stack_a)->index > temp->index) ? ((*stack_a)->moves = (*stack_a)->index +1) : ((*stack_a)->moves = temp->index +1);// broken 97 second element 
 		else
-			(*stack_a)->moves = (*stack_a)->index + temp->index +2;
+			(*stack_a)->moves = (*stack_a)->index + temp->index +1;
 		if((*stack_a)->next)
 			*stack_a = (*stack_a)->next;
 		else
@@ -53,80 +53,82 @@ int calc_moves(t_stack **stack_a, t_stack **stack_b)// ultimo else fica moves = 
 
 t_stack *find_correct_place(int number, t_stack *stack_b) // criar caso para ultimo stack
 {
-	t_stack *temp_b;
-	temp_b = stack_b->next;
-	while(temp_b->next)
+	while(stack_b->next)
 	{
-		if (stack_b->content > number > temp_b->content)
-			return(temp_b);
-		temp_b = temp_b->next;
+		if (stack_b->content > stack_b->next->content && stack_b->content > number && number > stack_b->next->content)
+			return(stack_b->next);
+		if(stack_b->content < stack_b->next->content && ( number > stack_b->next->content || number < stack_b->content))			
+			return(stack_b->next);
 		stack_b = stack_b->next;
-	}// progresso 1
-	if (stack_b->content > number > temp_b->content)
-		return(temp_b);
+	}
 	while(stack_b->previous)
 		stack_b = stack_b->previous;
-	return(stack_b);// NAO LE O ULTIMO ELEMENTO
+	return(stack_b);
 }
 
 int move_nbr(t_stack **stack_a, t_stack *temp_a, t_stack *temp_b, t_stack **stack_b)
 {
-	int i;
 	
-	i = 0;
-	if (temp_a->direction == 1  && temp_b->direction == 1)
+	if(temp_a->direction != temp_b->direction)
 	{
-		if(temp_a->index <= temp_b->index)
+		if(temp_a->direction == 1)
 		{
-			while(i++ <= temp_a->index)
-				rr(&(*stack_a), &(*stack_b));
-			while(i++ <= temp_b->index)
-				rb(&(*stack_b));
-		}
-		else
-		{
-			while(i++ <= temp_b->index)
-				rr(&(*stack_a), &(*stack_b));
-			while(i++ <= temp_a->index)
+			while(temp_a-> index-- > 0)
 				ra(&(*stack_a));
-		}
-		pb(&(*stack_a), &(*stack_b));
-	}
-	else if (temp_a->direction == -1  && temp_b->direction == -1)
-	{
-		if(temp_a->index <= temp_b->index)
-		{
-			while(i++ <= temp_a->index)
-				rrr(&(*stack_a), &(*stack_b));
-			while(i++ <= temp_b->index)
+			while(temp_b-> index-- > 0)
 				rrb(&(*stack_b));
 		}
 		else
 		{
-			while(i++ <= temp_b->index)
-				rrr(&(*stack_a), &(*stack_b));
-			while(i++ <= temp_a->index)
+			while(temp_b->index-- > 0)
+				rb(&(*stack_b));
+			while(temp_a-> index-- > 0)
 				rra(&(*stack_a));
 		}
-		pb(&(*stack_a), &(*stack_b));
 	}
-	else
+	else if(temp_a->direction == temp_b->direction)
 	{
-		if(temp_a->direction == -1)
-			while(i++ <= temp_a->index)
-				rra(&(*stack_a));
-		else if(temp_a->direction == 1)
-			while(i++ <= temp_a->index)
-				ra(&(*stack_a));
-		i = 0;
-		if (temp_b->direction == -1)
-			while(i++ < temp_b->index) // corrected 96
-				rrb(&(*stack_b));
-		else if (temp_b->direction == 1)
-			while(i++ <= temp_b->index )
-				rb(&(*stack_b));
-		pb(&(*stack_a), &(*stack_b));
-	}
+		if(temp_a->direction == 1)
+		{
+			if(temp_a->index > temp_b->index)
+			{
+				temp_a->index = temp_a->index - temp_b->index;
+				while(temp_b->index-- > 0)
+					rr(&(*stack_a), &(*stack_b));
+				while(temp_a->index-- > 0)
+					ra(&(*stack_a));
+			}
+			else
+			{
+				temp_b->index = temp_b->index - temp_a->index;
+				while(temp_a->index-- > 0)
+					rr(&(*stack_a), &(*stack_b));
+				while(temp_b->index-- > 0)
+					rb(&(*stack_b));
+			}
+		}
+		else
+		{
+			if(temp_a->index > temp_b->index)
+			{
+				temp_a->index = temp_a->index - temp_b->index;
+				while(temp_b->index-- > 0)
+					rrr(&(*stack_a), &(*stack_b));
+				while(temp_a->index-- > 0)
+					rra(&(*stack_a));
+			}
+			else
+			{
+				temp_b->index = temp_b->index - temp_a->index;
+				while(temp_a->index-- > 0)
+					rrr(&(*stack_a), &(*stack_b));
+				while(temp_b->index-- > 0)
+					rrb(&(*stack_b));
+			}
+		}
+		}
+	pb(&(*stack_a), &(*stack_b));
+	return(0);
 }
 
 int sort_stack(t_stack **stack_a, t_stack **stack_b)
@@ -145,16 +147,16 @@ int sort_stack(t_stack **stack_a, t_stack **stack_b)
 		sb(&(*stack_b));
 	calc_moves(&(*stack_a), &(*stack_b));
 	print_stack(*stack_a, *stack_b);
-	printf("%i\n", find_correct_place(9999, *stack_b)->content); //teste
-	while(ft_lstsize(*stack_a) > 96)
+	while(ft_lstsize(*stack_a) > 49)
 	{
 		temp_a = find_snbr(*stack_a);
 		get_first_element(&(*stack_a));
 		temp_b = find_correct_place(temp_a->content, *stack_b);
 		get_first_element(&(*stack_b));
-		printf("mover:%i para cima de:%i\n",find_snbr(*stack_a)->content, find_correct_place(temp_a->content, *stack_b)->content);
+		printf("mover:%i para cima de:%i\n",find_snbr(*stack_a)->content, find_correct_place(temp_a->content, *stack_b)->content);// visualizar movimentos
 		move_nbr(&(*stack_a), temp_a, temp_b, &(*stack_b));
 		calc_moves(&(*stack_a), &(*stack_b));
+		print_stack(*stack_a, *stack_b);// visualizar movimentos
 	}
 	// while(ft_lstsize(*stack_b) > 0)
 	// {
