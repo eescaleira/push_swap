@@ -1,22 +1,21 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    MAKEFILE                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/27 13:37:37 by eescalei          #+#    #+#              #
-#    Updated: 2023/10/27 18:41:28 by eescalei         ###   ########.fr        #
+#    Updated: 2023/10/27 21:11:38 by eescalei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
 FLAGS = -Wall -Wextra -Werror
-INCLUDE = -I ./inc/ \
-				-I ./libft/
+INCLUDE = -I ./inc/ -I ./libft/
 
-SRC_PATH = ./src/
+SRC_PATH = ./srcs/
 OBJ_PATH = ./obj/
 
 LIB_PATH = ./libft/
@@ -25,46 +24,42 @@ LIB = $(LIB_PATH)$(LIB_NAME)
 
 RM = rm -rf
 
-SOURCES =	main.c/
-			sort_stack.c/
-			print_stack.c/
-			general_moves.c/
-			movements.c/
-			stack_operations.c/
-			utils.c/
-			variables_calcs.c
+SOURCES =	main.c \
+			sort_stack.c \
+			general_moves.c \
+			movements.c \
+			stack_operations.c \
+			utils.c \
+			variables_calcs.c \
+			print_stack.c 
 
-SRCS = $(addprefix $(SRC_PATH), $(SOURCES))
+SRCS = $(addprefix $(SRC_PATH),$(SOURCES))
 OBJ = $(SOURCES:.c=.o)
-OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
+OBJS = $(addprefix $(OBJ_PATH),$(OBJ))
 
 
-all: $(LIB)$(NAME)
+all: $(NAME)
+
+$(NAME): $(OBJS) $(LIB)
+	$(CC) $(FLAGS) $(INCLUDE) $(OBJS) $(LIB) -o $(NAME)
 
 $(LIB):
-	make -sC $(LIB_PATH)
+	make bonus -sC $(LIB_PATH)
 
-$(NAME):
-	$(OBJS)
-	$(CC) $(FLAGS) $(INCLUDE) $(SRCS) $(LIB) -o $(NAME)
-
-$(OBJS):	| $(OBJ_PATH)
-
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@ $(INCLUDE)
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c | $(OBJ_PATH)
+	$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@
 
 $(OBJ_PATH):
-	mkdir $(OBJ_PATH)
+	mkdir -p $(OBJ_PATH)
 
-clean:
+clean: 
 	$(RM) $(OBJ_PATH)
-	make clean -sC $(LIB_PATH) clean
+	make clean -sC $(LIB_PATH)
 
 fclean: clean
 	$(RM) $(NAME)
-	make fclean -sC $(LIB_PATH) fclean
+	make fclean -sC $(LIB_PATH)
 
 re: fclean all
 
-.SILENT:
 .PHONY: all clean fclean re

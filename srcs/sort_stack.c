@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 01:08:11 by eescalei          #+#    #+#             */
-/*   Updated: 2023/10/27 10:13:44 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/10/27 19:24:11 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,6 @@ int sort_stack(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack *temp_a;
 	t_stack *temp_b;
-	int a;
 	
 	pb(&(*stack_a), &(*stack_b));
 	pb(&(*stack_a), &(*stack_b));
