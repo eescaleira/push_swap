@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:53:59 by eescalei          #+#    #+#             */
-/*   Updated: 2023/10/26 23:24:07 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/10/27 10:49:39 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,8 @@ int push(t_stack **destiny, t_stack **origin)
 	t_stack *temp;
 	if(ft_lstsize(*origin) == 1)
 	{
-		temp = *origin;
-		(*destiny)->previous = temp;
-		(*destiny)->previous->next = *destiny;
+		(*origin)->next = *destiny;
+		(*destiny)->previous = *origin;
 	}
 	else if(!*destiny)
 	{

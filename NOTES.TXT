@@ -3,5 +3,5 @@ passo 2: calc moves seems 									DONE
 passo 3: move_nbr(problema depois de stack A menor que 50)	DONE
 passo 4: passar tudo para stack A							DONE
 passo 5: printfs
-passo 6: make
-passo 7: leaks
+passo 6: make 
+passo 7: leaks 
