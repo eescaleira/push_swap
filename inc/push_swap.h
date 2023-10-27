@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:53:43 by eescalei          #+#    #+#             */
-/*   Updated: 2023/10/26 20:03:47 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/10/27 21:51:18 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_stack *find_correct_place(int number, t_stack *stack_b);
 t_stack *find_snbr(t_stack *stack_a);
 
 /* suport functions */
-int	ft_atoi(char *str);
+int	ft_atoii(char *str);
 void print_stack(t_stack *stack_a, t_stack *stack_b);
 
 /* list functions */

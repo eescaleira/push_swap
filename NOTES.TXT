@@ -1,2 +1,2 @@
-passo 6: make libft make the printf 
+passo 6: printf 
 passo 7: leaks 

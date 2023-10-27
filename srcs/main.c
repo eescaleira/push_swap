@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:53:50 by eescalei          #+#    #+#             */
-/*   Updated: 2023/10/27 10:52:23 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/10/27 21:52:41 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int main (int ac, char **av)
 	{
 		while(av[j] != NULL)
 		{
-			if(ft_atoi(av[i]) == ft_atoi(av[j]))
+			if(ft_atoii(av[i]) == ft_atoii(av[j]))
 			{
 				printf("Error\n");
 				return(-1);
@@ -63,7 +63,7 @@ int main (int ac, char **av)
 	while(av[i] != NULL)
 	{
 		if(av[i])
-			ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(av[i])));
+			ft_lstadd_back(&stack_a, ft_lstnew(ft_atoii(av[i])));
 		else
 			printf("erro a criar lista inicial");
 		i++;

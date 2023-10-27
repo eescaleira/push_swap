@@ -6,13 +6,13 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:56:21 by eescalei          #+#    #+#             */
-/*   Updated: 2023/08/26 15:46:35 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/10/27 21:51:07 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(char *str)
+int	ft_atoii(char *str)
 {
 	int	i;
 	int	sign;

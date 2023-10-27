@@ -6,7 +6,7 @@
 #    By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/21 16:03:03 by eescalei          #+#    #+#              #
-#    Updated: 2023/10/27 21:13:25 by eescalei         ###   ########.fr        #
+#    Updated: 2023/10/27 22:00:35 by eescalei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = libft.a
 HEADER = libft.h
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-INCLUDE = -I include
+INCLUDE = -I ./printf/
 
 SRC = 	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strncmp.c ft_toupper.c ft_tolower.c ft_strrchr.c ft_strnstr.c ft_strdup.c\
 		ft_atoi.c ft_memcmp.c ft_memmove.c ft_memset.c ft_memcpy.c ft_memchr.c ft_bzero.c ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strchr.c ft_calloc.c\
@@ -32,9 +32,9 @@ FT_PRINTF = $(FT_PRINTF_PATH)$(FT_PRINTF_NAME)
 
 RM = rm -f
 
-all:	${NAME}
+all:	${NAME} $(FT_PRINTF)
 
-$(NAME):	${OBJS}	$(FT_PRINTF)
+$(NAME):	${OBJS}	$(HEADER)
 		ar rcs ${NAME} ${OBJS} $(FT_PRINTF) ${HEADER}
 
 $(FT_PRINTF):
@@ -47,13 +47,15 @@ $(FT_PRINTF):
 clean:
 	${RM} ${OBJS}
 	${RM} ${OBJSB}
+	make clean -sC $(FT_PRINTF_PATH)
 
 fclean:	clean
 		${RM} ${NAME}
+		make fclean -sC $(FT_PRINTF_PATH)
 
 re:	fclean all
 
-bonus:	${OBJS} ${OBJSB}
-		ar rcs ${NAME} ${OBJSB} ${OBJS} ${HEADER}
+bonus:	${OBJS} ${OBJSB} $(FT_PRINTF)
+		ar rcs ${NAME} ${OBJSB} ${OBJS} $(FT_PRINTF) ${HEADER}
 
 .PHONY: all clean fclean re bonus
