@@ -1,0 +1,70 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    MAKEFILE                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/27 13:37:37 by eescalei          #+#    #+#              #
+#    Updated: 2023/10/27 18:41:28 by eescalei         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = push_swap
+CC = cc
+FLAGS = -Wall -Wextra -Werror
+INCLUDE = -I ./inc/ \
+				-I ./libft/
+
+SRC_PATH = ./src/
+OBJ_PATH = ./obj/
+
+LIB_PATH = ./libft/
+LIB_NAME = libft.a
+LIB = $(LIB_PATH)$(LIB_NAME)
+
+RM = rm -rf
+
+SOURCES =	main.c/
+			sort_stack.c/
+			print_stack.c/
+			general_moves.c/
+			movements.c/
+			stack_operations.c/
+			utils.c/
+			variables_calcs.c
+
+SRCS = $(addprefix $(SRC_PATH), $(SOURCES))
+OBJ = $(SOURCES:.c=.o)
+OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
+
+
+all: $(LIB)$(NAME)
+
+$(LIB):
+	make -sC $(LIB_PATH)
+
+$(NAME):
+	$(OBJS)
+	$(CC) $(FLAGS) $(INCLUDE) $(SRCS) $(LIB) -o $(NAME)
+
+$(OBJS):	| $(OBJ_PATH)
+
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+	$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@ $(INCLUDE)
+
+$(OBJ_PATH):
+	mkdir $(OBJ_PATH)
+
+clean:
+	$(RM) $(OBJ_PATH)
+	make clean -sC $(LIB_PATH) clean
+
+fclean: clean
+	$(RM) $(NAME)
+	make fclean -sC $(LIB_PATH) fclean
+
+re: fclean all
+
+.SILENT:
+.PHONY: all clean fclean re

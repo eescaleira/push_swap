@@ -5,3 +5,5 @@ passo 4: passar tudo para stack A							DONE
 passo 5: printfs
 passo 6: make 
 passo 7: leaks 
+
+make libft make the printf
