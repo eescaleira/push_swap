@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:53:43 by eescalei          #+#    #+#             */
-/*   Updated: 2023/10/29 10:35:40 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/10/29 12:40:32 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,12 @@ typedef struct	stack
 	int 			moves;
 	struct stack	*next;
 }				t_stack;
+
 /* algorythm */
 int sort_stack(t_stack **stack_a, t_stack **stack_b);
 int calc_moves(t_stack **stack_a, t_stack **stack_b);
 t_stack *find_correct_place(int number, t_stack *stack_b);
 t_stack *find_snbr(t_stack *stack_a);
-
-/* suport functions */
-int	ft_atoii(char *str);
-void print_stack(t_stack *stack_a, t_stack *stack_b);
-
-/* list functions */
-int		ft_lstsize(t_stack *lst);
-void	ft_lstadd_front(t_stack **lst, t_stack *new);
-void	ft_lstadd_back(t_stack **lst, t_stack *new);
-t_stack	*ft_lstnew(int content);
-t_stack	*ft_lstlast(t_stack *lst);
 
 /* variables corretion */
 void variables_corretor(t_stack **stack_a);
@@ -72,4 +62,14 @@ int rra(t_stack **stack_a);
 int rrb(t_stack **stack_b);
 int rrr(t_stack **stack_a, t_stack **stack_b);
 
+/* suport functions */
+int		ft_atoii(char *str);
+int		ft_lstsize(t_stack *lst);
+void	ft_lstadd_front(t_stack **lst, t_stack *new);
+void	ft_lstadd_back(t_stack **lst, t_stack *new);
+t_stack	*ft_lstnew(int content);
+t_stack	*ft_lstlast(t_stack *lst);
+
+/* suport functions */
+/* void print_stack(t_stack *stack_a, t_stack *stack_b);*/
 #endif

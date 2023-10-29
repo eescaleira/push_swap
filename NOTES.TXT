@@ -1,2 +1,0 @@
-passo 6: printf 
-passo 7: leaks 

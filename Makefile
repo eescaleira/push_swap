@@ -6,14 +6,14 @@
 #    By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/27 13:37:37 by eescalei          #+#    #+#              #
-#    Updated: 2023/10/29 12:18:48 by eescalei         ###   ########.fr        #
+#    Updated: 2023/10/29 23:37:17 by eescalei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
 FLAGS = -Wall -Wextra -Werror
-INCLUDE = -I ./inc/ -I ./libft/
+INCLUDE = -I ./inc/
 
 SRC_PATH = ./srcs/
 OBJ_PATH = ./obj/
