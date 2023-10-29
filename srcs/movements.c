@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:54:04 by eescalei          #+#    #+#             */
-/*   Updated: 2023/10/27 22:12:04 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/10/29 12:11:19 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int sa(t_stack **stack_a)
 	if(*stack_a)
 		get_first_element(&(*stack_a));
 	if(!*stack_a || ft_lstsize(*stack_a) < 2)
-		return	(-1);	
+		return	(-1);
 	swap(&(*stack_a));
 	printf("sa\n");
 	return (0);

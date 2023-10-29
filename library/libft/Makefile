@@ -6,7 +6,7 @@
 #    By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/21 16:03:03 by eescalei          #+#    #+#              #
-#    Updated: 2023/10/27 22:00:35 by eescalei         ###   ########.fr        #
+#    Updated: 2023/10/27 22:32:57 by eescalei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,6 @@ $(FT_PRINTF):
 .c.o:
 	${CC} ${CFLAGS} ${INCLUDE} -c $< -o ${<:.c=.o}
 
-	
 clean:
 	${RM} ${OBJS}
 	${RM} ${OBJSB}

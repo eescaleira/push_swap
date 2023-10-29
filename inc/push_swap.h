@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:53:43 by eescalei          #+#    #+#             */
-/*   Updated: 2023/10/27 21:51:18 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/10/29 10:35:40 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <fcntl.h>
 # include <sys/wait.h>
 # include <errno.h>
-
 typedef struct	stack
 {
 	struct stack	*previous;

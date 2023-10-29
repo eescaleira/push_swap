@@ -6,12 +6,10 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 16:15:05 by eescalei          #+#    #+#             */
-/*   Updated: 2023/04/22 13:43:39 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/10/29 10:12:49 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <stdio.h>
-// #include <stdlib.h>
 #include "libft.h"
 
 int	ft_atoi(const char *str)
