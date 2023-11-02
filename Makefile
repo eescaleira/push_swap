@@ -6,7 +6,7 @@
 #    By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/27 13:37:37 by eescalei          #+#    #+#              #
-#    Updated: 2023/10/29 23:37:17 by eescalei         ###   ########.fr        #
+#    Updated: 2023/11/02 15:50:10 by eescalei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,9 @@ RM = rm -rf
 SOURCES =	main.c \
 			sort_stack.c \
 			general_moves.c \
-			movements.c \
+			movements_A.c \
+			movements_B.c \
+			movements_AB.c \
 			stack_operations.c \
 			utils.c \
 			variables_calcs.c \

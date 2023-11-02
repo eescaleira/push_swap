@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:53:50 by eescalei          #+#    #+#             */
-/*   Updated: 2023/10/27 21:52:41 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/11/02 15:45:15 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // caso nao haja argumentos ??
 // se ja estiver sorted
 // arg "1 3 0 4"// separar
-int main (int ac, char **av)
+int main(int ac, char **av)
 {
 	int i;
 	int j;

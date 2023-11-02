@@ -6,14 +6,14 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:54:11 by eescalei          #+#    #+#             */
-/*   Updated: 2023/08/26 15:51:44 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/11/02 19:22:35 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 int	ft_lstsize(t_stack *lst)
-{	
+{
 	int	c;
 
 	c = 0;
@@ -47,6 +47,7 @@ t_stack	*ft_lstnew(int content)
 	elem->next = NULL;
 	return (elem);
 }
+
 void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {
 	if (lst && new)
@@ -54,7 +55,8 @@ void	ft_lstadd_front(t_stack **lst, t_stack *new)
 		new -> next = *lst;
 		*lst = new;
 	}
-}	
+}
+
 void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
 	t_stack	*temp;
