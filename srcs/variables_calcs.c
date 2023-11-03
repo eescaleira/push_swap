@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 10:30:26 by eescalei          #+#    #+#             */
-/*   Updated: 2023/11/03 19:13:12 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/11/03 19:16:27 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	calc_moves(t_stack **stack_a, t_stack **stack_b)
 			*stack_a = (*stack_a)->next;
 		else
 			break;
+	// criar check para ultimo elemento
 	}
 	get_first_element(&(*stack_a));
 	return (0);
