@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:53:50 by eescalei          #+#    #+#             */
-/*   Updated: 2023/11/03 19:10:24 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/11/05 12:49:03 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ int	main(int ac, char **av)
 	}
 	variables_corretor(&stack_a);
 	sort_stack(&stack_a, &stack_b);
+	print_stack(stack_a, stack_b);
 	return (0);
 }

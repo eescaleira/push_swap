@@ -6,30 +6,11 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 10:30:26 by eescalei          #+#    #+#             */
-/*   Updated: 2023/11/05 12:40:41 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/11/05 12:55:48 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	calc_lastmove(t_stack **stack_a, t_stack **stack_b)
-{
-	t_stack	*temp;
-
-	temp = find_correct_place((*stack_a)->content, *stack_b);
-	if (temp->direction == 1 && (*stack_a)->direction == 1)
-	{
-		if ((*stack_a)->index > temp->index) 
-			((*stack_a)->moves = (*stack_a)->index +1);
-		else	
-			((*stack_a)->moves = temp->index +1);
-	}
-	else if(temp->direction == -1 && (*stack_a)->direction == -1)
-		((*stack_a)->index > temp->index) ? ((*stack_a)->moves = (*stack_a)->index +1) : ((*stack_a)->moves = temp->index +1);// broken 97 second element 
-	else
-		(*stack_a)->moves = (*stack_a)->index + temp->index +1;
-	return	(0);
-}
 
 int	calc_moves(t_stack **stack_a, t_stack **stack_b)
 {
@@ -53,7 +34,6 @@ int	calc_moves(t_stack **stack_a, t_stack **stack_b)
 			(*stack_a)->moves = (*stack_a)->index + temp->index +1;
 		*stack_a = (*stack_a)->next;
 	}
-	calc_lastmove(&(*stack_a), &(*stack_b));
 	get_first_element(&(*stack_a));
 	return (0);
 }
