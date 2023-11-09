@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:53:50 by eescalei          #+#    #+#             */
-/*   Updated: 2023/11/05 12:49:03 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/11/09 15:23:09 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,24 @@ int	check_2(char **av)
 	return (0);
 }
 
+t_stack *push_swap(t_stack **stack_a, t_stack **stack_b)
+{
+	variables_corretor(&(*stack_a));
+	sort_stack(&(*stack_a), &(*stack_b));
+	print_stack(*stack_a, *stack_b);
+	return (*stack_a);
+}
+
 int	main(int ac, char **av)
 {
 	int		i;
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-
+	t_stack	*stack_a = NULL;
+	t_stack	*stack_b = NULL;
+	i = 1;
 	if (ac < 3)
 	{
 		printf("not enough arguments!");
-		return (-1);
+		return (0);
 	}
 	if (check_input(&(*av)) != 0 || check_2(&(*av)) != 0)
 		return (0);
@@ -85,8 +93,6 @@ int	main(int ac, char **av)
 			printf("erro a criar lista inicial");
 		i++;
 	}
-	variables_corretor(&stack_a);
-	sort_stack(&stack_a, &stack_b);
-	print_stack(stack_a, stack_b);
+	push_swap(&stack_a, &stack_b);
 	return (0);
 }
