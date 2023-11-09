@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:53:50 by eescalei          #+#    #+#             */
-/*   Updated: 2023/11/09 15:23:09 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/11/09 18:44:17 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,13 @@ t_stack *push_swap(t_stack **stack_a, t_stack **stack_b)
 
 int	main(int ac, char **av)
 {
-	int		i;
 	t_stack	*stack_a = NULL;
 	t_stack	*stack_b = NULL;
+	int		i;
+	
 	i = 1;
+	stack_a = NULL;
+	stack_b = NULL;
 	if (ac < 3)
 	{
 		printf("not enough arguments!");
