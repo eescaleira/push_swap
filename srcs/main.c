@@ -6,14 +6,11 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:53:50 by eescalei          #+#    #+#             */
-/*   Updated: 2023/11/09 18:44:56 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/11/10 18:02:20 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-// criar erro para limitede int
-// criar caso para dois args (mais?)
-// caso nao haja argumentos ??
 // se ja estiver sorted
 // arg "1 3 0 4"// separar
 int	check_input(char **av)
@@ -29,7 +26,7 @@ int	check_input(char **av)
 		{
 			if (av[i][j] > 57)
 			{
-				printf("Error\n");
+				write(1, "Error\n", 6);
 				return (-1);
 			}
 			j++;
@@ -50,9 +47,9 @@ int	check_2(char **av)
 	{
 		while (av[j] != NULL)
 		{
-			if (ft_atoii(av[i]) == ft_atoii(av[j]))
+			if(ft_atoii(av[j]) == -1 || ft_atoii(av[i]) == -1 || ft_atoii(av[i]) == ft_atoii(av[j]))
 			{
-				printf("Error\n");
+				write(1, "Error\n", 6);
 				return (-1);
 			}
 			j++;
@@ -65,10 +62,25 @@ int	check_2(char **av)
 
 t_stack *push_swap(t_stack **stack_a, t_stack **stack_b)
 {
+	if(ft_lstsize(*stack_a) == 2)
+	{	if ((*stack_a)->content > (*stack_a)->next->content)
+			sa(&(*stack_a));
+		return (*stack_a);
+	}
 	variables_corretor(&(*stack_a));
 	sort_stack(&(*stack_a), &(*stack_b));
 	print_stack(*stack_a, *stack_b);
 	return (*stack_a);
+}
+
+int ac_check(int ac)
+{
+	if (ac <= 2)
+	{
+		write(1, "Error\n", 6);
+		return (-1);		
+	}	
+	return (0);
 }
 
 int	main(int ac, char **av)
@@ -80,12 +92,7 @@ int	main(int ac, char **av)
 	i = 1;
 	stack_a = NULL;
 	stack_b = NULL;
-	if (ac < 3)
-	{
-		printf("not enough arguments!");
-		return (0);
-	}
-	if (check_input(&(*av)) != 0 || check_2(&(*av)) != 0)
+	if (check_input(&(*av)) != 0 || check_2(&(*av)) != 0 || ac_check(ac) != 0)
 		return (0);
 	i = 1;
 	while (av[i] != NULL)
@@ -93,7 +100,7 @@ int	main(int ac, char **av)
 		if (av[i])
 			ft_lstadd_back(&stack_a, ft_lstnew(ft_atoii(av[i])));
 		else
-			printf("erro a criar lista inicial");
+			write(1, "Error\n", 6);
 		i++;
 	}
 	push_swap(&stack_a, &stack_b);

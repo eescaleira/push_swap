@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 01:08:11 by eescalei          #+#    #+#             */
-/*   Updated: 2023/11/09 15:11:48 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/11/10 17:11:10 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,6 @@ int	innit_sort(t_stack **stack_a, t_stack **stack_b)
 	pb(&(*stack_a), &(*stack_b));
 	pb(&(*stack_a), &(*stack_b));
 	if ((*stack_b)->content < (*stack_b)->next->content)
-		sb(&(*stack_b));
-	pb(&(*stack_a), &(*stack_b));
-	if ((*stack_b)->content < ft_lstlast(*stack_b)->content)
-		rb(&(*stack_b));
-	else if ((*stack_b)->content < (*stack_b)->next->content)
 		sb(&(*stack_b));
 	calc_moves(&(*stack_a), &(*stack_b));
 	return (0);

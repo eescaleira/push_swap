@@ -6,7 +6,7 @@
 #    By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/27 13:37:37 by eescalei          #+#    #+#              #
-#    Updated: 2023/11/02 15:50:10 by eescalei         ###   ########.fr        #
+#    Updated: 2023/11/10 16:32:10 by eescalei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,7 @@ SOURCES =	main.c \
 			movements_AB.c \
 			stack_operations.c \
 			utils.c \
-			variables_calcs.c \
-			print_stack.c 
+			variables_calcs.c 
 
 SRCS = $(addprefix $(SRC_PATH),$(SOURCES))
 OBJ = $(SOURCES:.c=.o)

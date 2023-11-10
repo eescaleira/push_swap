@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:54:04 by eescalei          #+#    #+#             */
-/*   Updated: 2023/11/02 15:51:50 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/11/10 17:08:22 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	sa(t_stack **stack_a)
 	if (!*stack_a || ft_lstsize(*stack_a) < 2)
 		return (-1);
 	swap(&(*stack_a));
-	printf("sa\n");
+	write(1 ,"sa\n", 3);
 	return (0);
 }
 
@@ -31,7 +31,7 @@ int	pa(t_stack **stack_a, t_stack **stack_b)
 		get_first_element(&(*stack_a));
 	get_first_element(&(*stack_b));
 	push(&(*stack_a), &(*stack_b));
-	printf("pa\n");
+	write(1 ,"pa\n", 3);
 	return (0);
 }
 
@@ -42,7 +42,7 @@ int	ra(t_stack **stack_a)
 	if (!*stack_a || ft_lstsize(*stack_a) < 2)
 		return (-1);
 	rotate(&(*stack_a));
-	printf("ra\n");
+	write(1 ,"ra\n", 3);
 	return (0);
 }
 
@@ -54,6 +54,6 @@ int	rra(t_stack **stack_a)
 		return (-1);
 	get_first_element(&(*stack_a));
 	reverse_rotate(&(*stack_a));
-	printf("rra\n");
+	write(1 ,"rra\n", 4);
 	return (0);
 }
