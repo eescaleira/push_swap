@@ -6,11 +6,32 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 01:08:11 by eescalei          #+#    #+#             */
-/*   Updated: 2023/11/10 17:11:10 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/11/11 13:05:31 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	move_nbr2(t_stack **stack_a, t_stack *ta, t_stack *tb, t_stack **stack_b)
+{
+	if (ta->index > tb->index)
+	{
+		ta->index = ta->index - tb->index;
+		while (tb->index-- > 0)
+			rrr(&(*stack_a), &(*stack_b));
+		while (ta->index-- > 0)
+			rra(&(*stack_a));
+	}
+	else
+	{
+		tb->index = tb->index - ta->index;
+		while (ta->index-- > 0)
+			rrr(&(*stack_a), &(*stack_b));
+		while (tb->index-- > 0)
+			rrb(&(*stack_b));
+	}
+	return (0);
+}
 
 int	move_nbr1(t_stack **stack_a, t_stack *ta, t_stack *tb, t_stack **stack_b)
 {
@@ -63,16 +84,6 @@ int	move_nbr(t_stack **stack_a, t_stack *ta, t_stack *tb, t_stack **stack_b)
 	return (0);
 }
 
-int	innit_sort(t_stack **stack_a, t_stack **stack_b)
-{
-	pb(&(*stack_a), &(*stack_b));
-	pb(&(*stack_a), &(*stack_b));
-	if ((*stack_b)->content < (*stack_b)->next->content)
-		sb(&(*stack_b));
-	calc_moves(&(*stack_a), &(*stack_b));
-	return (0);
-}
-
 int	alghorythm(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*ta;
@@ -91,7 +102,11 @@ int	sort_stack(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*temp;
 
-	innit_sort(&(*stack_a), &(*stack_b));
+	pb(&(*stack_a), &(*stack_b));
+	pb(&(*stack_a), &(*stack_b));
+	if ((*stack_b)->content < (*stack_b)->next->content)
+		sb(&(*stack_b));
+	calc_moves(&(*stack_a), &(*stack_b));
 	while (ft_lstsize(*stack_a) > 1)
 		alghorythm(&(*stack_a), &(*stack_b));
 	while ((*stack_b)->content > (*stack_b)->next->content)

@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:53:43 by eescalei          #+#    #+#             */
-/*   Updated: 2023/11/10 17:10:43 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/11/11 13:06:24 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,7 @@ t_stack	*ft_lstnew(int content);
 t_stack	*ft_lstlast(t_stack *lst);
 
 /* suport functions */
-int		move_nbr2(t_stack **stack_a, t_stack *ta, t_stack *tb, t_stack **stack_b);
-void	print_stack(t_stack *stack_a, t_stack *stack_b);
-
+void	free_stack(t_stack **stack_);	
+/* void	print_stack(t_stack *stack_a, t_stack *stack_b);*/
 
 #endif

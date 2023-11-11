@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 20:56:21 by eescalei          #+#    #+#             */
-/*   Updated: 2023/11/10 17:18:34 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/11/11 13:11:02 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_atoii(char *str)
 {
-	int	i;
-	int	sign;
+	int			i;
+	int			sign;
 	long int	nb;
 
 	i = 0;
@@ -33,35 +33,16 @@ int	ft_atoii(char *str)
 		nb = nb * 10 + str[i] - '0';
 		i++;
 	}
-	if((nb * sign) > 2147483647 || (nb * sign) < -2147483648)
+	if ((nb * sign) > 2147483647 || (nb * sign) < -2147483648)
 		return (-1);
 	return (nb * sign);
-}
-
-int	move_nbr2(t_stack **stack_a, t_stack *ta, t_stack *tb, t_stack **stack_b)
-{
-	if (ta->index > tb->index)
-	{
-		ta->index = ta->index - tb->index;
-		while (tb->index-- > 0)
-			rrr(&(*stack_a), &(*stack_b));
-		while (ta->index-- > 0)
-			rra(&(*stack_a));
-	}
-	else
-	{
-		tb->index = tb->index - ta->index;
-		while (ta->index-- > 0)
-			rrr(&(*stack_a), &(*stack_b));
-		while (tb->index-- > 0)
-			rrb(&(*stack_b));
-	}
-	return (0);
 }
 
 void print_stack(t_stack *stack_a, t_stack *stack_b)
 {
 	int i;
+	
+	i = 0;
 	printf("Stack A                                                               Stack B\n");
 	printf("------------------------------------------------------------------    ------------------------------------------------------------------\n");	
 	while(stack_a || stack_b)

@@ -6,7 +6,7 @@
 /*   By: eescalei <eescalei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 15:46:48 by eescalei          #+#    #+#             */
-/*   Updated: 2023/11/10 17:08:56 by eescalei         ###   ########.fr       */
+/*   Updated: 2023/11/11 13:09:39 by eescalei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ss(t_stack **stack_a, t_stack **stack_b)
 		swap(&(*stack_a));
 	if (!*stack_b || ft_lstsize(*stack_b) <= 1)
 		swap(&(*stack_b));
-	write(1 ,"ss\n", 3);
+	write(1, "ss\n", 3);
 	return (0);
 }
 
@@ -50,6 +50,6 @@ int	rrr(t_stack **stack_a, t_stack **stack_b)
 		reverse_rotate(&(*stack_a));
 	if (ft_lstsize(*stack_b) > 2)
 		reverse_rotate(&(*stack_b));
-	write(1 ,"rrr\n", 4);
+	write(1, "rrr\n", 4);
 	return (0);
 }
